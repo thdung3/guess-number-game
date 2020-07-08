@@ -5,6 +5,9 @@ let history = [];
 let time = 30 // time start from 0
 let myTime; // timer will be assign to this variable
 let isWin = false;
+let previous = {};
+let bestScore = {};
+let bestTime = 0;
 timeCounting()// fire the timecounting function!!
 
 function doGuess() {
@@ -28,15 +31,21 @@ function doGuess() {
         document.getElementById('text-result').innerHTML = 'Too Low'
     } else {
         isWin = true;
-        clearInterval(myTime);
         document.getElementById('text-result').innerHTML = 'You win'
         document.getElementById('winning-number').innerHTML = randomNumber
+        previous.result = isWin
+        previous.numbers = history
+        bestScore.time = time;
+        bestScore.numbers = history;
+        clearInterval(myTime);
     }
-    history.push(numberGuess);
-    remaining--;
+    history.push(numberGuess)
+    remaining--
     if (remaining == 0) {
         document.getElementById('text-result').innerHTML = 'You lose'
         document.getElementById('winning-number').innerHTML = randomNumber
+        previous.result = isWin
+        previous.numbers = history
         clearInterval(myTime);
     }
     document.getElementById('numberRemaining').innerHTML = remaining
@@ -55,9 +64,23 @@ function doReset() {
     document.getElementById('winning-number').innerHTML = '???'
     document.getElementById('numberTime').innerHTML = time
     document.getElementById('numberRemaining').innerHTML = remaining
-    document.getElementById('history-text').innerHTML = ''
+    document.getElementById('history-text').innerHTML = '---'
     document.getElementById('number-notify').innerHTML = ''
     document.getElementById('inputNumber').value = ''
+    if (previous.result != undefined) {
+        if (previous.result) {
+            document.getElementById('previous-text').innerHTML = `${previous.numbers} - Win`
+        } else {
+            document.getElementById('previous-text').innerHTML = `${previous.numbers} - Lose`
+        }
+
+    }
+    if (bestScore.time != undefined) {
+        if (bestScore.time > bestTime) {
+            bestTime = bestScore.time
+            document.getElementById('best-score-text').innerHTML = `${previous.numbers} - Time: ${bestTime}`
+        }
+    }
     timeCounting()
 }
 
