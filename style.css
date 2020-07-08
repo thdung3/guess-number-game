@@ -1,0 +1,91 @@
+.border-red{ 
+    border: 1px solid red;
+}
+body {
+    background-color: black;
+    color: white;
+}
+.container {
+    width: 75%;
+    margin-top:10%;
+    margin-bottom:5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+h1 { 
+    color: white;
+    font-size: 100px;
+}
+.input-text{
+    border-radius: 30px !important;
+    text-align: center;
+    /* border: 2px solid #3498db; */
+    background: none !important;
+    width: 75%;
+    transition: 0.25s;
+}
+#inputNumber {
+    border: 2px solid #3498db;
+}
+#inputNumber:hover{
+    border-color: #effd5f;
+    
+}
+#inputNumber:focus{
+    border-color: #effd5f;
+    color: white;
+    width: 90%;
+    transition: 0.25s;
+}
+
+#btnGuess {
+    color: #2ecc71;
+    border: 2px solid #2ecc71;
+}
+#btnReset {
+    color: #FA8072;
+    border: 2px solid #FA8072;
+}
+#btnGuess, #btnReset{
+    width:75%;
+    outline: none;
+    height: 38px;
+}
+#btnGuess:hover{
+    color: white;
+    background: #2ecc71 !important;
+    box-shadow: 0 0 30px #26de81;
+}
+#btnReset:hover{
+    color: white;
+    background: #FA8072 !important;
+    box-shadow: 0 0 30px #FA8072;
+}
+
+.input-position{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.display-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#numberTime, #numberRemaining {
+    font-size: 50px;
+    font-weight: 700;
+    color: red;
+}
+
+#text-result{
+    font-size: 30px;
+    font-weight: 700;
+}
