@@ -19,7 +19,7 @@ function doGuess() {
     console.log('numberGuess:', numberGuess)
 
     // Control the input number
-    let isCheckNumber = controlInputNumber(numberGuess)
+    let isCheckNumber = controlInputNumber()
     if (isCheckNumber == false) {
         return 0
     }
@@ -95,7 +95,9 @@ function timeCounting() {
     }, 1000)// every 1 second, it will add 1 into time variable (computer use millisecond so 1000 is 1 second)
 }
 
-function controlInputNumber(numberGuess) {
+function controlInputNumber() {
+    let numberGuessString = document.getElementById('inputNumber').value;
+    let numberGuess = parseInt(numberGuessString);
     if (numberGuess <= 0 || numberGuess > 100) {
         document.getElementById('number-notify').innerHTML = 'Shoud be between 1 and 100'
         return false
