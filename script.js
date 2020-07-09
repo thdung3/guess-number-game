@@ -85,6 +85,7 @@ function doReset() {
     document.getElementById('history-text').innerHTML = '---'
     document.getElementById('number-notify').innerHTML = ''
     document.getElementById('inputNumber').value = ''
+    document.getElementById('text-result').innerHTML = ''
     if (previous.result != undefined) {
         if (previous.result) {
             document.getElementById('previous-text').innerHTML = `${previous.numbers} - Win`
