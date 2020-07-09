@@ -26,11 +26,17 @@ function doGuess() {
 
     // Show notification
     if (numberGuess > randomNumber) {
+        document.getElementById('text-result').className = ''
+        document.getElementById('text-result').classList.add('too-heigh-color')
         document.getElementById('text-result').innerHTML = 'Too high'
     } else if (numberGuess < randomNumber) {
+        document.getElementById('text-result').className = ''
         document.getElementById('text-result').innerHTML = 'Too Low'
+        document.getElementById('text-result').classList.add('too-low-color')
     } else {
         isWin = true;
+        document.getElementById('text-result').className = ''
+        document.getElementById('text-result').classList.add('win-color')
         document.getElementById('text-result').innerHTML = 'You win'
         document.getElementById('winning-number').innerHTML = randomNumber
         previous.result = isWin
@@ -42,6 +48,8 @@ function doGuess() {
     history.push(numberGuess)
     remaining--
     if (remaining == 0) {
+        document.getElementById('text-result').className = ''
+        document.getElementById('text-result').classList.add('lose-color')
         document.getElementById('text-result').innerHTML = 'You lose'
         document.getElementById('winning-number').innerHTML = randomNumber
         previous.result = isWin
@@ -90,6 +98,8 @@ function timeCounting() {
         document.getElementById('numberTime').innerHTML = time
         if (time == 0) {
             clearInterval(myTime);
+            document.getElementById('text-result').className = ''
+            document.getElementById('text-result').classList.add('lose-color')
             document.getElementById('text-result').innerHTML = 'You lose'
         }
     }, 1000)// every 1 second, it will add 1 into time variable (computer use millisecond so 1000 is 1 second)
